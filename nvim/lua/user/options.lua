@@ -10,12 +10,20 @@ vim.g.clipboard = {
   },
 }
 
+lvim.colorscheme = "tokyonight"
+lvim.format_on_save.enabled = true
 
-lvim.colorscheme = "tokyonight-moon"
-
-vim.opt.guifont = "JetBrainsMono Nerd Font:h40"
+vim.opt.guifont = "JetBrainsMono Nerd Font:h9"
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.relativenumber = true
 
-lvim.format_on_save.enabled = true
+-- Neovide Config --
+vim.g.neovide_fullscreen = true
+vim.g.neovide_cursor_animate_in_insert_mode = true
+vim.g.neovide_cursor_animate_command_line = true
+vim.g.neovide_hide_mouse_when_typing = true
+vim.g.neovide_cursor_vfx_mode = "pixiedust"
+
+vim.g.neovide_cursor_vfx_particle_lifetime = 2
+vim.g.neovide_cursor_vfx_particle_density = 50.0
