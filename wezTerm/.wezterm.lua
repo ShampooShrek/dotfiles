@@ -6,11 +6,14 @@ local config = {}
 -- config.default_prog = { "C:/Users/luizg/AppData/Local/Microsoft/WindowsApps/Microsoft.PowerShell_8wekyb3d8bbwe/pwsh.exe", "-l" }
 -- config.default_cwd = "C:/Users/luizg/Programming"
 
+config.initial_rows = 26
 config.color_scheme = "tokyonight"
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold" })
 config.font_size = 9
-
+config.window_background_opacity = .94
+config.macos_window_background_blur = 100
 config.colors = { background = "#131520", cursor_bg = "#ffffff" }
+
 -- config.window_background_image = "./NixOS.jpg"
 
 -- config.background = {

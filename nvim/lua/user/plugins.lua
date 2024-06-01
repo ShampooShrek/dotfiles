@@ -1,100 +1,66 @@
 local noice = require("user.plugins.noice")
 local tokyonight = require("user.plugins.tokyonight")
+local notify = require("user.plugins.nvim-notify")
+local typescript_tools = require("user.plugins.typescript-tools")
+local inc_rename = require("user.plugins.inc-rename")
+local smooth_cursor = require("user.plugins.smooth-cursor")
+local mini_animate = require("user.plugins.mini-animate")
+local windows = require("user.plugins.windows")
 
 lvim.plugins = {
-  { "styled-components/vim-styled-components" },
-  { "windwp/nvim-ts-autotag",                 config = true },
-  {
-    "smjonas/inc-rename.nvim",
-    config = function()
-      require("inc_rename").setup {
-        cmd_name = "IncRename"
-      }
-    end
-  },
+  { "windwp/nvim-ts-autotag",      config = true },
   { "windwp/nvim-autopairs",       config = true },
   { "norcalli/nvim-colorizer.lua", config = true },
-  { "mg979/vim-visual-multi" },
   { "folke/flash.nvim",            config = true },
+  { "CRAG666/code_runner.nvim",    config = true },
+  { "artur-shaik/jc.nvim",         config = true },
+  { "simaxme/java.nvim",           config = true },
+  -- { "edluffy/specs.nvim",          config = true },
+  -- { "karb94/neoscroll.nvim",       config = true },
+
+  {
+    "gen740/SmoothCursor.nvim",
+    config = function() smooth_cursor.setup() end
+  },
+  {
+    "smjonas/inc-rename.nvim",
+    config = function() inc_rename.setup() end
+  },
   {
     "folke/noice.nvim",
     config = function() noice.setup() end
   },
-  { "MunifTanjim/nui.nvim" },
   {
     "rcarriga/nvim-notify",
-    config = function()
-      require("notify").setup {
-        background_colour = "#24283b"
-      }
-    end
+    config = function() notify.setup() end
   },
   {
     "folke/tokyonight.nvim",
     config = function() tokyonight.setup() end
   },
-  { "CRAG666/code_runner.nvim", config = true },
   {
     "pmizio/typescript-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    config = function()
-      require("typescript-tools").setup {
-        settings = {
-          tsserver_plugins = {
-            -- for TypeScript v4.9+
-            "@styled/typescript-styled-plugin",
-            -- or for older TypeScript versions
-            -- "typescript-styled-plugin",
-          },
-        },
-      }
-    end,
+    config = function() typescript_tools.setup() end
   },
-  { "anuvyklack/middleclass" },
-  { "anuvyklack/animation.nvim" },
-  {
-    "anuvyklack/windows.nvim",
-    config = function()
-      vim.o.winwidth = 10
-      vim.o.winminwidth = 10
-      vim.o.equalalways = false
-      require('windows').setup()
-    end
-  },
-  { "edluffy/specs.nvim", config = true },
-  {
-    "karb94/neoscroll.nvim", config = true
-  },
-  {
-    "echasnovski/mini.animate",
-    config = function()
-      local mouse_scrolled = false
-      for _, scroll in ipairs({ "Up", "Down" }) do
-        local key = "<ScrollWheel" .. scroll .. ">"
-        vim.keymap.set({ "", "i" }, key, function()
-          mouse_scrolled = true
-          return key
-        end, { expr = true })
-      end
+  -- {
+  --   "echasnovski/mini.animate",
+  --   config = function() mini_animate.setup() end
+  -- },
+  -- {
+  --   "anuvyklack/windows.nvim",
+  --   config = function() windows.setup() end
+  -- },
 
-      local animate = require("mini.animate")
-      return {
-        resize = {
-          timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
-        },
-        scroll = {
-          timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
-          subscroll = animate.gen_subscroll.equal({
-            predicate = function(total_scroll)
-              if mouse_scrolled then
-                mouse_scrolled = false
-                return false
-              end
-              return total_scroll > 1
-            end,
-          }),
-        },
-      }
-    end
-  }
+  { "styled-components/vim-styled-components" },
+  { "mg979/vim-visual-multi" },
+  { "MunifTanjim/nui.nvim" },
+  { "puremourning/vimspector" },
+  { "othree/xml.vim" },
+  { "mfussenegger/nvim-jdtls" },
+  { "markwoodhall/vim-codelens" }
+
+  -- { "anuvyklack/middleclass" },
+  -- { "anuvyklack/animation.nvim" },
+  -- {"williamboman/nvim-lsp-installer", config = true },
 }

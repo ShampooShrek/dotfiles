@@ -1,13 +1,18 @@
+neofetch;
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=~/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
+export DEV=$HOME/Documentos/DevOffice
+
+
+export EDITOR='/opt/nvim-linux64/bin/nvim'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="pixegami-agnoster"
+ZSH_THEME="shampoo-shrek"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -94,3 +99,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export PATH="/usr/local/bin":$PATH
+export PATH="/opt/nvim-linux64/bin":$PATH
+export PATH="/opt/apache-maven-3.9.6/bin":$PATH
+export PATH="$DEV/Scripts/":$PATH
+export PATH="$HOME/":$PATH
+export PATH="$HOME/.spicetify":$PATH
+export PATH="$HOME/.local/bin":$PATH

@@ -3,7 +3,7 @@ local M = {}
 
 M.setup = function()
   require("tokyonight").setup {
-    transparent = true,
+    -- transparent = true,
     on_highlights = function(h1, c)
       h1.NvimTreeNormal = {
         bg = "NONE"
@@ -18,7 +18,7 @@ M.setup = function()
       }
     end,
     on_colors = function(colors)
-      -- colors.bg = "#111320"
+      colors.bg = "#131520"
     end,
   }
 end
