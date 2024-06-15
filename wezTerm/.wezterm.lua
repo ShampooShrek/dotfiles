@@ -10,32 +10,30 @@ config.initial_rows = 26
 config.color_scheme = "tokyonight"
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold" })
 config.font_size = 9
-config.window_background_opacity = .94
+config.window_background_opacity = 1
 config.macos_window_background_blur = 100
-config.colors = { background = "#131520", cursor_bg = "#ffffff" }
+config.colors = { background = "#11121F", cursor_bg = "#ffffff" }
 
--- config.window_background_image = "./NixOS.jpg"
-
--- config.background = {
---   -- This is the deepest/back-most layer. It will be rendered first
---   {
---     source = {
---       File = './terminal_background.jpg',
---     },
---     horizontal_align = "Center",
---     height = "Cover",
---     width = "Cover",
---   },
--- }
+config.background = {
+	-- This is the deepest/back-most layer. It will be rendered first
+	{
+		source = {
+			File = "./Imagens/terminal_bg_95.png",
+		},
+		horizontal_align = "Center",
+		height = "Cover",
+		width = "Cover",
+	},
+}
 
 config.enable_scroll_bar = false
 config.enable_tab_bar = false
 
 config.window_padding = {
-  left = 5,
-  right = 5,
-  top = 5,
-  bottom = 5
+	left = 5,
+	right = 5,
+	top = 5,
+	bottom = 5,
 }
 
 return config
