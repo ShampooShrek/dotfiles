@@ -1,7 +1,7 @@
 return {
   "folke/tokyonight.nvim",
   opts = {
-    transparent = true,
+    transparent = false,
     on_highlights = function(h1, c)
       h1.NeoTreeNormal = {
         bg = "NONE",
@@ -16,7 +16,7 @@ return {
       }
     end,
     on_colors = function(colors)
-      colors.bg = "#11121F"
+      colors.bg = "#080810"
     end,
   },
 }

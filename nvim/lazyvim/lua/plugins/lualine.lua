@@ -32,7 +32,7 @@ local colors = {
 
 local theme = {
   normal = {
-    a = { bg = colors.blue, fg = colors.terminal_black },
+    a = { bg = colors.bg_dark, fg = colors.terminal_black },
     b = { bg = colors.fg_gutter, fg = colors.blue },
     c = { fg = colors.fg_sidebar },
     z = { fg = colors.blue7 },
@@ -142,7 +142,7 @@ local sections = process_sections({
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
-  opts = function()
+  opts = function(_, opts)
     local lualine_require = require("lualine_require")
     lualine_require.require = require
 
@@ -150,19 +150,17 @@ return {
 
     vim.o.laststatus = vim.g.lualine_laststatus
 
-    local opts = {
-      options = options,
-      sections = sections,
-      lualine_y = {
-        { "progress", separator = " ", padding = { left = 1, right = 0 } },
-        { "location", padding = { left = 0, right = 1 } },
-      },
-      lualine_z = {
-        function()
-          return " " .. os.date("%R")
-        end,
-      },
-      extensions = { "neo-tree", "lazy" },
+    opts.options = options
+    opts.sections = sections
+    -- sections = sections,
+    -- lualine_y = {
+    --   { "progress", separator = " ", padding = { left = 1, right = 0 } },
+    --   { "location", padding = { left = 0, right = 1 } },
+    -- },
+    opts.sections.lualine_z = {
+      function()
+        return " " .. os.date("%R")
+      end,
     }
 
     -- do not add trouble symbols if aerial is enabled
