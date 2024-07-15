@@ -4,10 +4,11 @@ neofetch;
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
-export DEV=$HOME/Documentos/DevOffice
-
-
+export DEV=$HOME/Documents/DevOffice
 export EDITOR='/opt/nvim-linux64/bin/nvim'
+export VISUAL='/opt/nvim-linux64/bin/nvim'
+
+export BROWSER="brave"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -17,7 +18,7 @@ ZSH_THEME="shampoo-shrek"
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
+# looking in 	~/.oh-my-zsh/themes/
 # An empty array have no effect
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -99,11 +100,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
 export PATH="/usr/local/bin":$PATH
 export PATH="/opt/nvim-linux64/bin":$PATH
 export PATH="/opt/apache-maven-3.9.6/bin":$PATH
-export PATH="$DEV/Scripts/":$PATH
+export PATH="$DEV/Scripts":$PATH
 export PATH="$HOME/":$PATH
 export PATH="$HOME/.spicetify":$PATH
 export PATH="$HOME/.local/bin":$PATH
+export PATH="$HOME/.local/kitty.app/bin/":$PATH
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

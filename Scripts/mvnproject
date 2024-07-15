@@ -3,19 +3,19 @@
 groupId=$1
 artifactId=$2
 
-if [ -z "$groupId"]; then
-  echo -n "Ensira o groupId(br.com.luizito):"
-  read groupId
-  if [ -z "$groupId" ]; then
-    groupId="br.com.luizito"
-  fi
+if [ -z "$groupId" ]; then
+	echo -n "Ensira o groupId(br.com.luizito):"
+	read -r groupId
+	if [ -z "$groupId" ]; then
+		groupId="br.com.luizito"
+	fi
 else
-  groupId=$1
+	groupId=$1
 fi
 
 while [ -z "$artifactId" ]; do
-  echo -n "Ensira o artifactId:"
-  read artifactId
+	echo -n "Ensira o artifactId:"
+	read -r artifactId
 done
 
-mvn archetype:generate -DgroupId=$groupId -DartifactId=$artifactId -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+mvn archetype:generate -DgroupId="$groupId" -DartifactId="$artifactId" -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false

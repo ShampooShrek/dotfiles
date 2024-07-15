@@ -140,47 +140,47 @@ local sections = process_sections({
 })
 
 return {
-  "nvim-lualine/lualine.nvim",
-  event = "VeryLazy",
-  opts = function(_, opts)
-    local lualine_require = require("lualine_require")
-    lualine_require.require = require
-
-    local icons = require("lazyvim.config").icons
-
-    vim.o.laststatus = vim.g.lualine_laststatus
-
-    opts.options = options
-    opts.sections = sections
-    -- sections = sections,
-    -- lualine_y = {
-    --   { "progress", separator = " ", padding = { left = 1, right = 0 } },
-    --   { "location", padding = { left = 0, right = 1 } },
-    -- },
-    opts.sections.lualine_z = {
-      function()
-        return " " .. os.date("%R")
-      end,
-    }
-
-    -- do not add trouble symbols if aerial is enabled
-    if vim.g.trouble_lualine then
-      local trouble = require("trouble")
-      local symbols = trouble.statusline
-        and trouble.statusline({
-          mode = "symbols",
-          groups = {},
-          title = false,
-          filter = { range = true },
-          format = "{kind_icon}{symbol.name:Normal}",
-          hl_group = "lualine_c_normal",
-        })
-      table.insert(opts.sections.lualine_c, {
-        symbols and symbols.get,
-        cond = symbols and symbols.has,
-      })
-    end
-
-    return opts
-  end,
+  -- "nvim-lualine/lualine.nvim",
+  -- event = "VeryLazy",
+  -- opts = function(_, opts)
+  --   local lualine_require = require("lualine_require")
+  --   lualine_require.require = require
+  --
+  --   local icons = require("lazyvim.config").icons
+  --
+  --   vim.o.laststatus = vim.g.lualine_laststatus
+  --
+  --   opts.options = options
+  --   opts.sections = sections
+  --   -- sections = sections,
+  --   -- lualine_y = {
+  --   --   { "progress", separator = " ", padding = { left = 1, right = 0 } },
+  --   --   { "location", padding = { left = 0, right = 1 } },
+  --   -- },
+  --   opts.sections.lualine_z = {
+  --     function()
+  --       return " " .. os.date("%R")
+  --     end,
+  --   }
+  --
+  --   -- do not add trouble symbols if aerial is enabled
+  --   if vim.g.trouble_lualine then
+  --     local trouble = require("trouble")
+  --     local symbols = trouble.statusline
+  --       and trouble.statusline({
+  --         mode = "symbols",
+  --         groups = {},
+  --         title = false,
+  --         filter = { range = true },
+  --         format = "{kind_icon}{symbol.name:Normal}",
+  --         hl_group = "lualine_c_normal",
+  --       })
+  --     table.insert(opts.sections.lualine_c, {
+  --       symbols and symbols.get,
+  --       cond = symbols and symbols.has,
+  --     })
+  --   end
+  --
+  --   return opts
+  -- end,
 }

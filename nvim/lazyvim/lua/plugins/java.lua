@@ -1,20 +1,9 @@
 return {
-  "nvim-java/nvim-java",
-  dependencies = {
-    "nvim-java/lua-async-await",
-    "nvim-java/nvim-java-refactor",
-    "nvim-java/nvim-java-core",
-    "nvim-java/nvim-java-test",
-    "nvim-java/nvim-java-dap",
-    "MunifTanjim/nui.nvim",
-    {
-      "williamboman/mason.nvim",
-      opts = {
-        registries = {
-          "github:nvim-java/mason-registry",
-          "github:mason-org/mason-registry",
-        },
-      },
-    },
+  {
+    "mfussenegger/nvim-jdtls",
+    dependencies = { "folke/which-key.nvim" },
+    ft = { "java" },
+    opts = function() end,
+    config = function() end,
   },
 }
